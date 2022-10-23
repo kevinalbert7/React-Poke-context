@@ -5,7 +5,7 @@ const Home = () => {
   const [pokemon, setPokemon] = useState(null)
 
   useEffect(() =>  {
-    fetch("https://pokeapi.co/api/v2/pokemon/1")
+    fetch('https://pokeapi.co/api/v2/pokemon/1')
       .then(response => response.json())
       .then(result => setPokemon(result))
   }, [])
@@ -18,23 +18,24 @@ const Home = () => {
   }
 
   return (
-    <Box w="100wv" maxH="90%" display="flex" alignItems="center" justifyContent="center" flexDirection="column">
-      <h1 style={{ marginTop: "0" }}>Home</h1>
-        {pokemon === null ? "" :
+    <Box w='100wv' maxH='90%' display='flex' alignItems='center' justifyContent='center' flexDirection='column'>
+      <VStack mt={10} spacing={5}>
+        <Heading>Home</Heading>
+        {pokemon === null ? '' :
           <div
             style={{
-              borderImage: "linear-gradient(rgba(131,58,180,1) 0%, rgba(253,29,29,1) 20%, rgba(252,176,69,1) 40%, rgba(140,252,69,1) 60%, rgba(23,230,242,1) 80%, rgba(84,69,252,1) 100%) 1",
-              borderWidth: "4px",
-              borderStyle: "solid",
-              borderRadius: "7px",
-              backgroundColor: "#718096"
+              borderImage: 'linear-gradient(rgba(131,58,180,1) 0%, rgba(253,29,29,1) 20%, rgba(252,176,69,1) 40%, rgba(140,252,69,1) 60%, rgba(23,230,242,1) 80%, rgba(84,69,252,1) 100%) 1',
+              borderWidth: '4px',
+              borderStyle: 'solid',
+              borderRadius: '7px',
+              backgroundColor: '#2D3748'
             }}
           >
-            <Image src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
+            <Image src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} width='300px'/>
             <Box pb='10'>
               <Box display='flex' flexDirection='column' alignItems='center'>
-                <Heading mt="0">{pokemon.name}</Heading>
-                  <VStack spacing={10}>
+                <Heading mb={3}>{pokemon.name}</Heading>
+                  <VStack spacing={2}>
                   <Box
                     color='BlackAlpha 800'
                     fontWeight='600'
@@ -55,27 +56,17 @@ const Home = () => {
             </Box>
           </div>
         }
-        <button 
-          style={{
-            height: "50px", 
-            width: "170px",
-            marginTop: "20px",
-            background: "linear-gradient(45deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 20%, rgba(252,176,69,1) 40%, rgba(140,252,69,1) 60%, rgba(23,230,242,1) 80%, rgba(84,69,252,1) 100%)",
-            // backgroundColor: "transparent",
-            // backgroundBlendMode: "overlay",
-            color: "black", 
-            fontSize: "16px", 
-            fontWeight: "bold", 
-            cursor: "pointer",
-            borderRadius: "7px"
-            // borderImage: "linear-gradient(to right, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 20%, rgba(252,176,69,1) 40%, rgba(140,252,69,1) 60%, rgba(23,230,242,1) 80%, rgba(84,69,252,1) 100%) 1",
-            // borderWidth: "4px",
-            // borderStyle: "solid",
-            // border: "2px solid black", 
-            // borderRadius: "8px", 
-            // backgroundColor: "#718096", 
-          }}
-          onClick={() => getRandomPokemon()}>Change Pokemon</button>
+        <Button 
+          bgGradient='linear(to-l, #7928CA, #FF0080)'
+          borderWidth='2px'
+          borderColor='gray.700'
+          color='gray.700'
+          variant='solid'
+          onClick={() => getRandomPokemon()}
+        >
+          Change Pokemon
+        </Button>
+      </VStack>
     </Box>
   )
 }
