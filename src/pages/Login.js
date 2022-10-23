@@ -2,6 +2,7 @@ import { Button } from "@chakra-ui/button"
 import { Heading, VStack } from "@chakra-ui/layout"
 import { Formik } from "formik"
 import * as Yup from "yup"
+
 import TextField from "../components/TextField"
 
 const Login = () => {
@@ -18,7 +19,6 @@ const Login = () => {
       })}
       onSubmit={(values, actions) => {
         alert(JSON.stringify(values, null, 2))
-        console.log(values)
         actions.resetForm()
       }}
     >

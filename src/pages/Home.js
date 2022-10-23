@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Box, Image, Heading, VStack, Button } from'@chakra-ui/react'
+import { Box, VStack, Heading, Image, Button } from'@chakra-ui/react'
 
 const Home = () => {
   const [pokemon, setPokemon] = useState(null)
