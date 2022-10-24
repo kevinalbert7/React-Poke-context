@@ -1,8 +1,4 @@
-import {
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-} from "@chakra-ui/form-control"
+import { FormControl, FormErrorMessage, FormLabel} from "@chakra-ui/form-control"
 import { Input } from "@chakra-ui/input"
 import { Field, useField } from "formik"
 

@@ -1,19 +1,18 @@
-import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Flex, HStack, Button } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { useContext } from "react"
+import { useNavigate, Link } from "react-router-dom"
+import { Flex, HStack, Button } from "@chakra-ui/react"
 
-import { UserContext } from '../contexts/User'
+import { UserContext } from "../contexts/User"
 
 const Navbar = () => {
   const { isLogged, setIsLogged } = useContext(UserContext)
 
   let navigate = useNavigate()
 
-  // const logOut = () => {
-  //   setIsLogged(false)
-  //   navigate('/')
-  // }
+  const logOut = () => {
+    setIsLogged(false)
+    navigate("/")
+  }
 
   return (
     <Flex
@@ -26,23 +25,25 @@ const Navbar = () => {
       >
         <HStack as="nav" spacing="5">
           <Link to="/">
-            <Button colorScheme='teal' variant='outline'>
+            <Button colorScheme="teal" variant="outline">
               Home
             </Button>
           </Link>
         </HStack>
         <HStack>
-          <Link to="/login">
-            {isLogged ? 
-              <Button colorScheme='teal' variant='outline' onClick={setIsLogged(false)}>
-                Logout
-              </Button>
-            : 
-              <Button colorScheme='teal' variant='outline'>
+          {isLogged === false ? 
+            <Link to="/login"> 
+              <Button colorScheme="teal" variant="outline">
                 Login
               </Button>
-            }
-          </Link>
+            </Link>  
+          : 
+            <Link>
+              <Button colorScheme="teal" variant="outline" onClick={logOut}>
+                Logout
+              </Button>
+            </Link>
+          }
         </HStack>
       </Flex>
   )

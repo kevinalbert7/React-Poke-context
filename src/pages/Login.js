@@ -1,15 +1,16 @@
-import { Button } from "@chakra-ui/button"
 import { useContext } from "react"
-import { useNavigate } from 'react-router-dom'
-import { Heading, VStack } from "@chakra-ui/layout"
+import { useNavigate } from "react-router-dom"
 import { Formik } from "formik"
 import * as Yup from "yup"
+import { Heading, VStack } from "@chakra-ui/layout"
+import { Button } from "@chakra-ui/button"
 
-import { UserContext } from '../contexts/User'
+import { UserContext } from "../contexts/User"
 import TextField from "../components/TextField"
 
 const Login = () => {
   const { isLogged, setIsLogged } = useContext(UserContext)
+
   let navigate = useNavigate()
 
   return (
@@ -44,7 +45,8 @@ const Login = () => {
           <TextField
             label="Username"
             name="username" 
-            placeholder="enter username" 
+            placeholder="enter username"
+            autoFocus
           />
 
           <TextField

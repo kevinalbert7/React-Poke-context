@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react"
 
 const NotFound = () => {
   return (
-    <div>NotFound</div>
+    <div>Error 404 - Page not found</div>
   )
 }
 

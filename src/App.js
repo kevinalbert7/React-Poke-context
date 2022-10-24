@@ -1,12 +1,12 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ChakraProvider, Box } from '@chakra-ui/react'
+import React from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { ChakraProvider, Box } from "@chakra-ui/react"
 
-import { UserContextProvider } from './contexts/User'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import Login from './pages/Login'
-import NotFound from './pages/NotFound'
+import { UserContextProvider } from "./contexts/User"
+import Navbar from "./components/Navbar"
+import Home from "./pages/Home"
+import Login from "./pages/Login"
+import NotFound from "./pages/NotFound"
 
 const App = () => {
   return (
