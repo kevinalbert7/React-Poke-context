@@ -2,17 +2,17 @@ import { createContext, useState } from "react"
 
 const UserContext = createContext({})
 
-const UserContextProvider = (props) => {
+const UserContextProvider = ({ children }) => {
     const [ isLogged, setIsLogged] = useState(false)
 
     const value = {
-        isLogged: isLogged,
-        setIsLogged: setIsLogged
+        isLogged,
+        setIsLogged
     }
 
   return (
     <UserContext.Provider value={value}>
-        {props.children}
+        {children}
     </UserContext.Provider>
   )
 }

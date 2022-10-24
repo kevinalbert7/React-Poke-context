@@ -1,8 +1,20 @@
-import React from 'react'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Flex, HStack, Button } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
+import { UserContext } from '../contexts/User'
+
 const Navbar = () => {
+  const { isLogged, setIsLogged } = useContext(UserContext)
+
+  let navigate = useNavigate()
+
+  // const logOut = () => {
+  //   setIsLogged(false)
+  //   navigate('/')
+  // }
+
   return (
     <Flex
         w="100%"
@@ -21,9 +33,15 @@ const Navbar = () => {
         </HStack>
         <HStack>
           <Link to="/login">
-            <Button colorScheme='teal' variant='outline'>
-              Login
-            </Button>
+            {isLogged ? 
+              <Button colorScheme='teal' variant='outline' onClick={setIsLogged(false)}>
+                Logout
+              </Button>
+            : 
+              <Button colorScheme='teal' variant='outline'>
+                Login
+              </Button>
+            }
           </Link>
         </HStack>
       </Flex>

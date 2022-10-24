@@ -1,11 +1,17 @@
 import { Button } from "@chakra-ui/button"
+import { useContext } from "react"
+import { useNavigate } from 'react-router-dom'
 import { Heading, VStack } from "@chakra-ui/layout"
 import { Formik } from "formik"
 import * as Yup from "yup"
 
+import { UserContext } from '../contexts/User'
 import TextField from "../components/TextField"
 
 const Login = () => {
+  const { isLogged, setIsLogged } = useContext(UserContext)
+  let navigate = useNavigate()
+
   return (
     <Formik
       initialValues={{ username: "", password: "" }}
@@ -16,9 +22,10 @@ const Login = () => {
         password: Yup.string()
           .required("Password required")
           .min(6, "Password is too short"),
-      })}
+        })}
       onSubmit={(values, actions) => {
-        alert(JSON.stringify(values, null, 2))
+        setIsLogged(true)
+        navigate('/')
         actions.resetForm()
       }}
     >
@@ -47,8 +54,12 @@ const Login = () => {
             placeholder="enter password"
             mb={5}
           />
-
-          <Button w="100%" type="submit" variant="outline" colorScheme="teal">
+          <Button 
+            w="100%" 
+            type="submit" 
+            variant="outline" 
+            colorScheme="teal"
+          >
             Enter
           </Button>
         </VStack>
